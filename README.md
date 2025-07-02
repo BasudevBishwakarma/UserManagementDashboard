@@ -37,9 +37,7 @@ A modern web app built with **React + TypeScript** featuring:
 ## 🔧 Getting Started
 
 ```bash```
-pnpm install
-pnpm run server
-pnpm dev
+pnpm install / pnpm run server / pnpm dev
 
 
 📁 Project Highlights
