@@ -1,69 +1,51 @@
-# React + TypeScript + Vite
+# 🚀 React User Dashboard & Infinite Scroll App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern web app built with **React + TypeScript** featuring:
 
-Currently, two official plugins are available:
+- 🧑‍💼 **User Management Dashboard** – Full CRUD with Ant Design & Redux Toolkit
+- 🔄 **Infinite Scroll Page** – Auto-loading user cards from `dummyjson.com`
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+## ⚙️ Tech Stack
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- **React + TypeScript**
+- **Ant Design** (UI)
+- **Tailwind CSS** (Styling)
+- **Redux Toolkit + RTK Query** (State & API)
+- **Axios** (HTTP Requests)
+- **json-server** (Mock Backend)
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+---
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+## 📌 Features
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+### ✅ User Dashboard
+- View users in AntD Table
+- Search (debounced), Add (antd Modal), Edit, View (antd Drawer), and Delete (antd confirmation modal) users
+- Form inside Modal using AntD
+- API powered by `json-server` + `RTK Query + Axios`
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### ✅ Infinite Scroll Page
+- Load users on scroll
+- Search and filter by gender
+- Card layout with image, name, email, gender
+- Axios used directly (no global store)
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+---
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## 🔧 Getting Started
+
+```bash```
+pnpm install / pnpm run server / pnpm dev
+
+
+📁 Project Highlights
+
+✅ Clean UI with Ant Design + Tailwind
+✅ API abstraction via Axios + RTK Query
+✅ Real-world patterns with redux slices & code splitting
+✅ Optimistic UI updates
+
+👨‍💻 Author
+Basudev Khati
