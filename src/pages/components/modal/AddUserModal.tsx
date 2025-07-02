@@ -6,6 +6,7 @@ export interface UserFormValues {
   email: string;
   phone: string;
   company: string;
+  website: string;
   id: number;
 }
 
@@ -96,6 +97,14 @@ const AddUserModal: React.FC<UserFromProps> = ({
           rules={[{ required: true, message: "Comapny name is required." }]}
         >
           <Input placeholder="Enter company name" />
+        </Form.Item>
+
+        <Form.Item
+          label="Website"
+          name="website"
+          rules={[{ required: true, message: "Website is required." }]}
+        >
+          <Input placeholder="Enter website" />
         </Form.Item>
 
         <div className="flex justify-end gap-[8px] mt-4">

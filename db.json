@@ -135,6 +135,14 @@
       "phone": "987600000",
       "company": "Cedar Gate",
       "website": "https://cedargate.com"
+    },
+    {
+      "name": "Anish Thapa",
+      "email": "anish12@yopmail.com",
+      "phone": "987600000",
+      "company": "Infocom Solution",
+      "website": "https://infocomsolution.com",
+      "id": "e295"
     }
   ]
 }

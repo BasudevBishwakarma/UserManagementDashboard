@@ -1,7 +1,8 @@
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import UserCard from "./components/card/UserCard";
 import axios from "axios";
-import { Spin } from "antd";
+import { Select, Spin } from "antd";
+import Search from "../components/table/FilterSearch";
 
 interface UserType {
   id: number;
@@ -17,6 +18,10 @@ const InfiniteScroll = () => {
   const [totalElement, setTotalElement] = useState<number | null>(null);
   const [limit, setLimit] = useState(10);
   const [loading, setLoading] = useState(true);
+  const [search, setSearch] = useState("");
+  const [genderFilter, setGenderFilter] = useState<string | null>(null);
+
+  const { Option } = Select;
 
   const getUserData = async () => {
     try {
@@ -59,15 +64,38 @@ const InfiniteScroll = () => {
     return () => window.removeEventListener("scroll", handelInfiniteScroll);
   }, []);
 
+  const filteredData = useMemo(() => {
+    return userData?.filter((user) => {
+      const fullName = `${user.firstName} ${user.lastName}`.toLowerCase();
+      const matchesName = fullName.includes(search.toLowerCase());
+      const matchesGender = genderFilter ? user.gender === genderFilter : true;
+      return matchesName && matchesGender;
+    });
+  }, [search, userData, genderFilter]);
+
   return (
-    <div className="p-5 flex flex-wrap gap-[24px]">
-      {userData.map((items) => (
-        <div key={items.id} className="w-[calc(50%-1.25rem)]">
-          <UserCard data={items} />
+    <div className="space-y-[10px]">
+      <div className="flex items-center gap-[10px] mb-2">
+        <Search onSearch={setSearch} placeholder="Search..." />
+        <Select
+          allowClear
+          placeholder="Gender"
+          onChange={(value) => setGenderFilter(value || null)}
+          className="w-[100px]"
+        >
+          <Option value="male">Male</Option>
+          <Option value="female">Female</Option>
+        </Select>
+      </div>
+      <div className="flex flex-wrap gap-[24px]">
+        {filteredData.map((items) => (
+          <div key={items.id} className="w-[calc(50%-1.25rem)]">
+            <UserCard data={items} />
+          </div>
+        ))}
+        <div className="w-full flex justify-center">
+          {loading && <Spin size="large" tip="Loading..." />}
         </div>
-      ))}
-      <div className="w-full flex justify-center">
-        {loading && <Spin size="large" tip="Loading..." />}
       </div>
     </div>
   );

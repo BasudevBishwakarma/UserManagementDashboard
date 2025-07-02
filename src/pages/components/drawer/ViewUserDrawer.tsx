@@ -42,6 +42,9 @@ const ViewUserDrawer: React.FC<ViewUserDrawerProps> = ({
             <Descriptions.Item label="Company">
               {user.company}
             </Descriptions.Item>
+            <Descriptions.Item label="Website">
+              {user.website}
+            </Descriptions.Item>
           </Descriptions>
         </div>
       ) : (
