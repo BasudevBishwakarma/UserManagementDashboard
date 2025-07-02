@@ -3,7 +3,7 @@
 A modern web app built with **React + TypeScript** featuring:
 
 - 🧑‍💼 **User Management Dashboard** – Full CRUD with Ant Design & Redux Toolkit
-- 🔄 **Infinite Scroll Page** – Auto-loading user cards from `randomuser.me`
+- 🔄 **Infinite Scroll Page** – Auto-loading user cards from `dummyjson.com`
 
 ---
 
