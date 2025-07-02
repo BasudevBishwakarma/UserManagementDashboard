@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import UserCard from "./components/card/UserCard";
 import axios from "axios";
-import { Select, Spin } from "antd";
+import { message, Select, Spin } from "antd";
 import Search from "../components/table/FilterSearch";
 
 interface UserType {
@@ -21,6 +21,8 @@ const InfiniteScroll = () => {
   const [search, setSearch] = useState("");
   const [genderFilter, setGenderFilter] = useState<string | null>(null);
 
+  const [messageApi, contextHolder] = message.useMessage();
+
   const { Option } = Select;
 
   const getUserData = async () => {
@@ -35,8 +37,9 @@ const InfiniteScroll = () => {
       const total = res?.data?.total;
       setTotalElement(total);
       setLoading(false);
-    } catch (err) {
-      console.error("Failed to fetch users:", err);
+    } catch (error) {
+      console.error("ERROR: ", error);
+      messageApi.error("Failed to fetch users:");
     }
   };
 
@@ -75,6 +78,7 @@ const InfiniteScroll = () => {
 
   return (
     <div className="space-y-[10px]">
+      {contextHolder}
       <div className="flex items-center gap-[10px] mb-2">
         <Search onSearch={setSearch} placeholder="Search..." />
         <Select

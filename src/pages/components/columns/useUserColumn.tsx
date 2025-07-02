@@ -13,6 +13,7 @@ export interface User {
   email: string;
   phone: string;
   company: string;
+  website: string;
 }
 
 interface UseUserColumnsProps {
