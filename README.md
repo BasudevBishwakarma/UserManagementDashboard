@@ -22,7 +22,7 @@ A modern web app built with **React + TypeScript** featuring:
 
 ### ✅ User Dashboard
 - View users in AntD Table
-- Search (debounced), Add, Edit, View (Drawer), and Delete users
+- Search (debounced), Add (antd Modal), Edit, View (antd Drawer), and Delete (antd confirmation modal) users
 - Form inside Modal using AntD
 - API powered by `json-server` + `RTK Query + Axios`
 
